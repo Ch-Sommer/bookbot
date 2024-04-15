@@ -1,6 +1,17 @@
-def word_count(text):
+def get_text_from_file(path):
     try:
-        words = text.split()
+        with open(path, 'r') as f:
+            return f.read()
+            
+
+    except FileNotFoundError:
+        print(f"File '{path}' not found.")
+    except Exception as e:
+        print(f"An error occured: {e}")
+
+def word_count(string):
+    try:
+        words = string.split()
         count = len(words)
         return count
 
@@ -8,17 +19,8 @@ def word_count(text):
         print("Couldn't count the words, because: {w}")
 
 def main():
-    try:
-        frankenstein_string = "..."
-        with open('books/frankenstein.txt', 'r') as f:
-            frankenstein_string = f.read()
-            print(frankenstein_string)
-
-    except FileNotFoundError:
-        print(f"File '{'books/frankenstein.txt'}' not found.")
-    except Exception as e:
-        print(f"An error occured: {e}")
-
-    words=word_count(frankenstein_string)
-    print(words)
+    source='books/frankenstein.txt'
+    text=get_text_from_file(source)
+    words=word_count(text)
+    print(f"{text} \nThere are {words} words in the document {source}.")
 main()
