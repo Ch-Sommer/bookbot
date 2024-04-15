@@ -39,15 +39,35 @@ def count_letter(stext):
 #        else:
 #            chars[lowered] = 1
 #    return chars
-
-
     return letter_dict
+
+def sort_on(d):
+    return d["num"]
+
+def chars_dict_to_sorted_list(num_chars_dict):
+    sorted_list = []
+    for ch in num_chars_dict:
+        sorted_list.append({"char": ch, "num": num_chars_dict[ch]})
+    sorted_list.sort(reverse=True, key=sort_on)
+    return sorted_list
+
 
 def main():
     source='books/frankenstein.txt'
     text=get_text_from_file(source)
     words=word_count(text)
     count_letters=count_letter(text)
-    print(f"{text} \nThere are {words} words in the document {source}.")
-    print(f"{count_letters}")
+    #print(f"{text} \nThere are {words} words in the document {source}.")
+    #print(f"{count_letters}")
+    chars_sorted_list = chars_dict_to_sorted_list(count_letters)
+    print(f"--- Begin report of {source} ---")
+    print(f"{words} words found in the document")
+    print()
+
+    for item in chars_sorted_list:
+        if not item["char"].isalpha():
+            continue
+        print(f"The '{item['char']}' character was found {item['num']} times")
+
+    print("--- End report ---")
 main()
