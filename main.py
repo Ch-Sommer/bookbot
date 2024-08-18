@@ -60,7 +60,7 @@ def main():
     #print(f"{text} \nThere are {words} words in the document {source}.")
     #print(f"{count_letters}")
     chars_sorted_list = chars_dict_to_sorted_list(count_letters)
-    print(f"--- Begin report of {source} ---")
+    print(f"--- Begin of the report for {source} ---")
     print(f"{words} words found in the document")
     print()
 
@@ -69,5 +69,5 @@ def main():
             continue
         print(f"The '{item['char']}' character was found {item['num']} times")
 
-    print("--- End report ---")
+    print("--- End of the report ---")
 main()
