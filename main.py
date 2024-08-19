@@ -69,5 +69,5 @@ def main():
             continue
         print(f"The '{item['char']}' character was found {item['num']} times")
 
-    print("--- End of the report ---")
+    print("--- The end of the report ---")
 main()
