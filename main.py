@@ -53,6 +53,7 @@ def chars_dict_to_sorted_list(num_chars_dict):
 
 
 def main():
+    print("hello world")
     source='books/frankenstein.txt'
     text=get_text_from_file(source)
     words=word_count(text)
