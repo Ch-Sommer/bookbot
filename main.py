@@ -59,16 +59,16 @@ def main():
     words=word_count(text)
     count_letters=count_letter(text)
     ##print(f"{text} \nThere are {words} words in the document {source}.")
-    print(f"{count_letters}")
-    #chars_sorted_list = chars_dict_to_sorted_list(count_letters)
-    #print(f"--- Start of the report for {source} ---")
-    #print(f"{words} words found in the document")
-    #print()
+    ##print(f"{count_letters}")
+    chars_sorted_list = chars_dict_to_sorted_list(count_letters)
+    print(f"--- Start of the report for {source} ---")
+    print(f"{words} words found in the document")
+    print()
 
-    #for item in chars_sorted_list:
-    #    if not item["char"].isalpha():
-    #        continue
-    #    print(f"The '{item['char']}' character was found {item['num']} times")
+    for item in chars_sorted_list:
+        if not item["char"].isalpha():
+            continue
+        print(f"The '{item['char']}' character was found {item['num']} times")
 
-    #print("--- End of the report ---")
+    print("--- End of the report ---")
 main()
